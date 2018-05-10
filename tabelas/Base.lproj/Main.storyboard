@@ -30,11 +30,11 @@
                                         <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ic2-dH-r0G" id="s1A-aK-AmC">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <segue destination="LyK-jG-hgc" kind="show" identifier="segue1" id="8vO-yk-ieP"/>
+                                            <segue destination="LyK-jG-hgc" kind="show" identifier="" id="8vO-yk-ieP"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -47,9 +47,10 @@
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
                     <navigationItem key="navigationItem" title="Lista de Cidades" id="1jj-Ns-etI">
-                        <barButtonItem key="rightBarButtonItem" title="Validar" id="Sje-Ul-VeU">
+                        <barButtonItem key="rightBarButtonItem" title="Novo" id="Sje-Ul-VeU">
                             <connections>
                                 <action selector="butActionValidar:" destination="BYZ-38-t0r" id="g9c-Hd-p1s"/>
+                                <segue destination="LyK-jG-hgc" kind="show" identifier="segue1" id="a8p-9b-9My"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -61,10 +62,10 @@
             </objects>
             <point key="canvasLocation" x="1516" y="106.59670164917542"/>
         </scene>
-        <!--View Controller-->
+        <!--Detalhe-->
         <scene sceneID="E64-n5-qQ9">
             <objects>
-                <viewController id="LyK-jG-hgc" sceneMemberID="viewController">
+                <viewController id="LyK-jG-hgc" customClass="VCDetalhe" customModule="tabelas" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="kJG-Zc-O4e"/>
                         <viewControllerLayoutGuide type="bottom" id="elh-5D-9BJ"/>
@@ -72,12 +73,34 @@
                     <view key="view" contentMode="scaleToFill" id="Mjj-Oy-rAU">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="7lY-D5-kGR">
+                                <rect key="frame" x="16" y="83" width="166" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <toolbarItems>
+                        <barButtonItem title="Gravar" id="LBs-7R-8sr">
+                            <connections>
+                                <segue destination="tlD-Kz-jMm" kind="unwind" unwindAction="unWindFromDetalheGravarWithSegue:" id="B2M-gR-OVN"/>
+                            </connections>
+                        </barButtonItem>
+                    </toolbarItems>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="txtcidade1" destination="7lY-D5-kGR" id="a8N-wb-JCF"/>
+                        <outlet property="txtcidade2" destination="7lY-D5-kGR" id="OIh-yN-GiG"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pea-6a-t6M" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="tlD-Kz-jMm" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="2471" y="107"/>
+            <point key="canvasLocation" x="2469.5999999999999" y="106.59670164917542"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="uFz-P7-GM6">
@@ -98,4 +121,7 @@
             <point key="canvasLocation" x="576.79999999999995" y="106.59670164917542"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="a8p-9b-9My"/>
+    </inferredMetricsTieBreakers>
 </document>

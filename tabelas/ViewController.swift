@@ -45,12 +45,13 @@ class ViewController: UIViewController, UITextFieldDelegate, UITableViewDataSour
         cell.detailTextLabel?.text = "info adicional"
         
         cell.accessoryType = UITableViewCellAccessoryType.detailDisclosureButton
-        
-       /* if arrayB[indexPath.row]{
+        /*
+       if arrayB[indexPath.row]{
             cell.accessoryType = UITableViewCellAccessoryType.checkmark
         }else {
             cell.accessoryType = UITableViewCellAccessoryType.none
-        }*/
+        }
+ */
         
         return cell
     }
@@ -61,11 +62,14 @@ class ViewController: UIViewController, UITextFieldDelegate, UITableViewDataSour
     func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
         let editar = UITableViewRowAction(style: .default, title: "Editar"){action,index in
             print("editar: " + String(index.row) + " " + self.array[index.row])
+            self.performSegue(withIdentifier: "segue1", sender: indexPath)
         }
         editar.backgroundColor = UIColor.blue
         
         let apagar = UITableViewRowAction(style: .default, title: "Apagar"){action,index in
             print("apagar: " + String(index.row))
+            self.array.remove(at: index.row)
+            tableView.reloadData()
         }
         apagar.backgroundColor = UIColor.red
         
@@ -73,17 +77,18 @@ class ViewController: UIViewController, UITextFieldDelegate, UITableViewDataSour
     }
     
     func tableView(_ tableView: UITableView, accessoryButtonTappedForRowWith indexPath: IndexPath) {
-        /*let alert = UIAlertController(title: "Informaçao", message: array[indexPath.row], preferredStyle: UIAlertControllerStyle.alert)
+        let alert = UIAlertController(title: "Informaçao", message: array[indexPath.row], preferredStyle: UIAlertControllerStyle.alert)
         alert.addAction(UIAlertAction(title: "Fechar", style: UIAlertActionStyle.default, handler: nil))
-        self.present(alert, animated: true, completion: nil)*/
+        self.present(alert, animated: true, completion: nil)
         
         self.performSegue(withIdentifier: "segue1", sender: tableView)
         
         print(indexPath.row)
     }
     
-    /*
+    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        /*
         if arrayB[indexPath.row]{
             tableView.cellForRow(at: indexPath as IndexPath)?.accessoryType = .none
             arrayB[indexPath.row] = false
@@ -91,8 +96,9 @@ class ViewController: UIViewController, UITextFieldDelegate, UITableViewDataSour
             tableView.cellForRow(at: indexPath as IndexPath)?.accessoryType = .checkmark
             arrayB[indexPath.row] = true
         }
+ */
         
-    }*/
+    }
     
     
     
@@ -106,16 +112,35 @@ class ViewController: UIViewController, UITextFieldDelegate, UITableViewDataSour
         }
     }
     
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        self.performSegue(withIdentifier: "segue1", sender: tableView)
+   
+/*
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if(segue.identifier == "segue1") {
+            let idx = sender as! IndexPath
+            let vcdetalhe = (segue.destination as! VCDetalhe)
+            vcdetalhe.cidade = array[idx.row]
+            vcdetalhe.id_cidade = idx.row
+            
+        }
+    }
+ */
+ 
+    
+    @IBAction func unWindFromDetalheGravar(segue: UIStoryboardSegue){
+        let details = segue.source as! VCDetalhe
+        let cidade:String = details.txtcidade2.text!
+        print(cidade)
+        if(details.id_cidade != -1){
+            array.remove(at: details.id_cidade)
+        }
+        
+        array.append(cidade)
+        tableView.reloadData()
+        
+        
     }
     
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
+   
     
 }
 
