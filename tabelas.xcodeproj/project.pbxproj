@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		88227060209C9340003D0473 /* VCDetalhe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8822705F209C9340003D0473 /* VCDetalhe.swift */; };
+		884CB9DF20A5D38300314B32 /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 884CB9DE20A5D38300314B32 /* TableViewCell.swift */; };
+		884CB9E120A5D79B00314B32 /* EntitieCity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 884CB9E020A5D79B00314B32 /* EntitieCity.swift */; };
 		889ABBDB208A3394006F94E4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 889ABBDA208A3394006F94E4 /* AppDelegate.swift */; };
 		889ABBDD208A3394006F94E4 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 889ABBDC208A3394006F94E4 /* ViewController.swift */; };
 		889ABBE0208A3394006F94E4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 889ABBDE208A3394006F94E4 /* Main.storyboard */; };
@@ -17,6 +19,8 @@
 
 /* Begin PBXFileReference section */
 		8822705F209C9340003D0473 /* VCDetalhe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VCDetalhe.swift; sourceTree = "<group>"; };
+		884CB9DE20A5D38300314B32 /* TableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
+		884CB9E020A5D79B00314B32 /* EntitieCity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EntitieCity.swift; sourceTree = "<group>"; };
 		889ABBD7208A3394006F94E4 /* tabelas.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = tabelas.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		889ABBDA208A3394006F94E4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		889ABBDC208A3394006F94E4 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -63,6 +67,8 @@
 				889ABBE3208A3394006F94E4 /* LaunchScreen.storyboard */,
 				889ABBE6208A3394006F94E4 /* Info.plist */,
 				8822705F209C9340003D0473 /* VCDetalhe.swift */,
+				884CB9DE20A5D38300314B32 /* TableViewCell.swift */,
+				884CB9E020A5D79B00314B32 /* EntitieCity.swift */,
 			);
 			path = tabelas;
 			sourceTree = "<group>";
@@ -140,6 +146,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				889ABBDD208A3394006F94E4 /* ViewController.swift in Sources */,
+				884CB9DF20A5D38300314B32 /* TableViewCell.swift in Sources */,
+				884CB9E120A5D79B00314B32 /* EntitieCity.swift in Sources */,
 				88227060209C9340003D0473 /* VCDetalhe.swift in Sources */,
 				889ABBDB208A3394006F94E4 /* AppDelegate.swift in Sources */,
 			);

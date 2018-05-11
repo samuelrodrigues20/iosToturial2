@@ -13,6 +13,7 @@ class ViewController: UIViewController, UITextFieldDelegate, UITableViewDataSour
     
     var array = ["Lisboa", "Porto", "Braga", "Viana do Castelo", "Aveiro"]
     var arrayB = [false, false, false, false, false]
+    var arrayEntities = [EntityCity]()
     
     //MARK: properties
     
@@ -31,7 +32,48 @@ class ViewController: UIViewController, UITextFieldDelegate, UITableViewDataSour
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        
+        createArrayCities()
+        
     }
+    
+    private func createArrayCities() {
+        var c2:EntityCity = EntityCity()
+        c2.name = "Lisboa"
+        c2.countrie = "Portugal"
+        c2.habitantes = 1000
+        c2.Imagem = "img2"
+        arrayEntities.append(c2)
+        c2 = EntityCity()
+        
+        
+        c2.name = "Porto"
+        c2.countrie = "Portugal"
+        c2.habitantes = 5000
+        c2.Imagem = "img2"
+        arrayEntities.append(c2)
+        c2 = EntityCity()
+        
+        c2.name = "Tregosa"
+        c2.countrie = "Portugal"
+        c2.habitantes = 25
+        c2.Imagem = "img2"
+        arrayEntities.append(c2)
+        c2 = EntityCity()
+        
+        c2.name = "Viana"
+        c2.countrie = "Portugal"
+        c2.habitantes = 25000
+        c2.Imagem = "img2"
+        arrayEntities.append(c2)
+        c2 = EntityCity()
+        
+        c2.name = "Barcelos"
+        c2.countrie = "Portugal"
+        c2.habitantes = 20000
+        c2.Imagem = "img2"
+        arrayEntities.append(c2)
+          }
     
     //MARK: UITABLEVIEWDATASOURCE
     
@@ -40,7 +82,7 @@ class ViewController: UIViewController, UITextFieldDelegate, UITableViewDataSour
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = UITableViewCell(style: UITableViewCellStyle.subtitle, reuseIdentifier: "Cell")
+        /*let cell = UITableViewCell(style: UITableViewCellStyle.subtitle, reuseIdentifier: "Cell")
         cell.textLabel?.text = array[indexPath.row]
         cell.detailTextLabel?.text = "info adicional"
         
@@ -53,9 +95,17 @@ class ViewController: UIViewController, UITextFieldDelegate, UITableViewDataSour
         }
  */
         
+        return cell*/
+        let  cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! TableViewCell
+        let ec:EntityCity = arrayEntities[indexPath.row]
+        cell.labelTitulo.text=ec.name
+        cell.labelSubtitulo.text=ec.countrie
+        cell.labelInfo.text=String(ec.habitantes)
+        cell.labelImage.image=UIImage(named: ec.Imagem)
         return cell
+        
+        
     }
-    
     
     
     //MARK: UITABLEVIEWDELEGATE
